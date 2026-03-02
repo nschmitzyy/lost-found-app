@@ -13,7 +13,7 @@ supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 # Modell laden
 @st.cache_resource
 def load_ml_model():
-    model = load_model("keras_Model.h5", compile=False)
+    model = load_model("keras_model.h5", compile=False)
     labels = open("labels.txt", "r").readlines()
     return model, labels
 
