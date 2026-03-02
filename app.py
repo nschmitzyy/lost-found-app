@@ -10,6 +10,14 @@ SUPABASE_URL = st.secrets["SUPABASE_URL"]
 SUPABASE_KEY = st.secrets["SUPABASE_KEY"]
 supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 
+import os
+import streamlit as st
+
+st.write("Aktuelles Verzeichnis:", os.listdir("."))
+if not os.path.exists("keras_model.h5"):
+    st.error("❌ Datei 'keras_model.h5' nicht gefunden!")
+    st.stop()
+    
 # Modell laden
 @st.cache_resource
 def load_ml_model():
